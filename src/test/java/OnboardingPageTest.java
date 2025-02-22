@@ -1,3 +1,4 @@
+import hiteshtestautomation.ExplorePage;
 import hiteshtestautomation.OnboardingPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -5,10 +6,12 @@ import org.testng.annotations.Test;
 
 public class OnboardingPageTest extends BaseTest{
     private OnboardingPage onboardingPage;
+    private ExplorePage explorePage;
 
     @BeforeMethod
     public void setup() {
         onboardingPage = new OnboardingPage(driver);
+        explorePage = new ExplorePage(driver);
     }
 
     @Test
@@ -17,8 +20,8 @@ public class OnboardingPageTest extends BaseTest{
         onboardingScreensStarted();
         //Click on skip button on Onboarding screen
         onboardingPage.clickSkipButton();
-        Thread.sleep(5000);
-        //Assert.assertTrue();
+        //Assert that user is on Explore page
+        Assert.assertTrue(explorePage.verifyOnExplorePage());
     }
 
     @Test
@@ -42,7 +45,9 @@ public class OnboardingPageTest extends BaseTest{
         Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "Data & Privacy");
         //finish onboarding
         onboardingPage.clickGetStartedButton();
-        Thread.sleep(5000);
+
+        //Assert that user is on Explore page
+        Assert.assertTrue(explorePage.verifyOnExplorePage());
     }
 
     public void onboardingScreensStarted() {
