@@ -1,12 +1,22 @@
-import io.appium.java_client.AppiumBy;
+import hiteshtestautomation.OnboardingPage;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class OnboardingPageTest extends BaseTest{
+    private OnboardingPage onboardingPage;
+
+    @BeforeMethod
+    public void setup() {
+        onboardingPage = new OnboardingPage(driver);
+    }
 
     @Test
-    public void skipOnboardingTest() {
-        driver.findElement(AppiumBy.id("org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click();
-        //Assert that user is on Explore screen
+    public void skipOnboardingTest() throws InterruptedException {
+        //Click on skip button on Onboarding screen
+        onboardingPage.clickSkipButton();
+        Thread.sleep(5000);
         //Assert.assertTrue();
     }
+
+
 }
