@@ -1,6 +1,7 @@
 import hiteshtestautomation.ExplorePage;
 import hiteshtestautomation.OnboardingPage;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -12,6 +13,16 @@ public class OnboardingPageTest extends BaseTest{
     public void setup() {
         onboardingPage = new OnboardingPage(driver);
         explorePage = new ExplorePage(driver);
+
+    }
+
+    //TO DO - reinstall app and relaunch it
+    @AfterMethod
+    public void reinstallApp() {
+        driver.removeApp("org.wikipedia.alpha");
+        driver.installApp("//Users//hiteshmoudgil//Desktop//AutomationProjects//WikipediaAutomation//src//test//resources//app-alpha-universal-release.apk");
+        // Launch the app again
+        driver.activateApp("org.wikipedia.alpha");
     }
 
     @Test

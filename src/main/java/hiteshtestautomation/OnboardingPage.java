@@ -14,7 +14,7 @@ public class OnboardingPage {
 
     public OnboardingPage (AndroidDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(10)), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(5)), this);
     }
 
     @AndroidFindBy(id = "org.wikipedia.alpha:id/fragment_onboarding_skip_button")
