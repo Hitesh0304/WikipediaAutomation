@@ -26,9 +26,17 @@ public class OnboardingPageTest extends BaseTest{
     }
 
     @Test
+    public void onboardingScreenShowUpTest() {
+        //check that the first onboarding screen shows up
+        Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "The Free Encyclopedia\n" +
+                "…in over 300 languages", "The Onboarding screen did not show up.");
+    }
+
+    @Test
     public void skipOnboardingTest() throws InterruptedException {
         //assert user is on first onboarding screen
-        onboardingScreensStarted();
+        Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "The Free Encyclopedia\n" +
+                "…in over 300 languages");
         //Click on skip button on Onboarding screen
         onboardingPage.clickSkipButton();
         //Assert that user is on Explore page
@@ -36,9 +44,21 @@ public class OnboardingPageTest extends BaseTest{
     }
 
     @Test
+    public void navigateToSecondOnboardingScreenUsingContinue() {
+        //assert user is on first onboarding page screen
+        Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "The Free Encyclopedia\n" +
+                "…in over 300 languages");
+        //move to next onboarding page
+        onboardingPage.clickContinueButton();
+        //assert user is on second onboarding page
+        Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "New ways to explore");
+    }
+
+    @Test
     public void getStartedOnboardingTest() throws InterruptedException {
         //assert user is on first onboarding page screen
-        onboardingScreensStarted();
+        Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "The Free Encyclopedia\n" +
+                "…in over 300 languages");
         //move to next onboarding page
         onboardingPage.clickContinueButton();
 
@@ -59,10 +79,5 @@ public class OnboardingPageTest extends BaseTest{
 
         //Assert that user is on Explore page
         Assert.assertTrue(explorePage.verifyOnExplorePage());
-    }
-
-    public void onboardingScreensStarted() {
-        Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "The Free Encyclopedia\n" +
-                "…in over 300 languages");
     }
 }
