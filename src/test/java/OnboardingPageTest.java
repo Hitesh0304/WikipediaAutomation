@@ -1,5 +1,5 @@
-import hiteshtestautomation.ExplorePage;
-import hiteshtestautomation.OnboardingPage;
+import hiteshtestautomation.pages.ExplorePage;
+import hiteshtestautomation.pages.OnboardingPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

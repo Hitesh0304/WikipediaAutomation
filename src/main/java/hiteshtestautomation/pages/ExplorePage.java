@@ -1,6 +1,8 @@
-package hiteshtestautomation;
+package hiteshtestautomation.pages;
 
+import hiteshtestautomation.utils.AndroidActions;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.NetworkSpeed;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
@@ -10,10 +12,12 @@ import java.time.Duration;
 
 public class ExplorePage {
     AndroidDriver driver;
+    AndroidActions androidActions;
 
     public ExplorePage(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(5)), this);
+        androidActions = new AndroidActions(driver);
     }
 
     @AndroidFindBy (id = "org.wikipedia.alpha:id/main_toolbar_wordmark")
@@ -42,5 +46,13 @@ public class ExplorePage {
 
     public boolean verifyOnExplorePage() {
         return explorePageHeading.isDisplayed();
+    }
+
+    //public boolean
+
+    public void pullToRefresh() {
+        driver.setNetworkSpeed(NetworkSpeed.EDGE);
+        androidActions.swipeDownAction();
+        driver.setNetworkSpeed(NetworkSpeed.LTE);
     }
 }
