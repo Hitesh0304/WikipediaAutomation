@@ -5,15 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class OnboardingPageTest extends BaseTest{
-    private OnboardingPage onboardingPage;
-    private ExplorePage explorePage;
-
-    @BeforeMethod
-    public void setup() {
-        onboardingPage = new OnboardingPage(driver);
-        explorePage = new ExplorePage(driver);
-    }
+public class OnboardingPageTest extends BaseTest {
 
     @AfterMethod
     public void reinstallApp() {
@@ -36,7 +28,7 @@ public class OnboardingPageTest extends BaseTest{
         Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "The Free Encyclopedia\n" +
                 "…in over 300 languages");
         //Click on skip button on Onboarding screen
-        onboardingPage.clickSkipButton();
+        ExplorePage explorePage = onboardingPage.clickSkipButton();
         //Assert that user is on Explore page
         Assert.assertTrue(explorePage.verifyOnExplorePage());
     }
@@ -73,7 +65,7 @@ public class OnboardingPageTest extends BaseTest{
         //assert user is on fourth onboarding page
         Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "Data & Privacy");
         //finish onboarding
-        onboardingPage.clickGetStartedButton();
+        ExplorePage explorePage = onboardingPage.clickGetStartedButton();
 
         //Assert that user is on Explore page
         Assert.assertTrue(explorePage.verifyOnExplorePage());

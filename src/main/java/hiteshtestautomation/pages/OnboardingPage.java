@@ -37,15 +37,17 @@ public class OnboardingPage {
         return primaryTextView.getText();
     }
 
-    public void clickSkipButton() {
+    public ExplorePage clickSkipButton() {
         skipButton.click();
+        return new ExplorePage(driver);
     }
 
     public void clickContinueButton() {
         continueButton.click();
     }
 
-    public void clickGetStartedButton() {
+    public ExplorePage clickGetStartedButton() {
         getStartedButton.click();
+        return new ExplorePage(driver);
     }
 }

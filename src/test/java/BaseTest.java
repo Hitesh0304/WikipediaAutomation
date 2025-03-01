@@ -1,3 +1,4 @@
+import hiteshtestautomation.pages.OnboardingPage;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
@@ -13,6 +14,7 @@ import java.time.Duration;
 public class BaseTest {
     AndroidDriver driver;
     AppiumDriverLocalService service;
+    OnboardingPage onboardingPage;
 
     @BeforeClass
     public void configureAppium() throws IOException {
@@ -34,6 +36,8 @@ public class BaseTest {
 
         // This is to delay the moving between screens
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+
+        onboardingPage =  new OnboardingPage(driver);
     }
 
     @AfterClass
