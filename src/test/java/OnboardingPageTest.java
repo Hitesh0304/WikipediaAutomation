@@ -13,10 +13,8 @@ public class OnboardingPageTest extends BaseTest{
     public void setup() {
         onboardingPage = new OnboardingPage(driver);
         explorePage = new ExplorePage(driver);
-
     }
 
-    //TO DO - reinstall app and relaunch it
     @AfterMethod
     public void reinstallApp() {
         driver.removeApp("org.wikipedia.alpha");
