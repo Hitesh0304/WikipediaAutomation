@@ -28,5 +28,12 @@ public class ExplorePageTest extends BaseTest {
         explorePage.pullToRefresh();
         Assert.assertTrue(explorePage.getFeaturedArticleHeader().isDisplayed());
     }
+
+    @Test
+    public void searchDisplayedTest() {
+        onboardingPage.clickSkipButton();
+        explorePage.verifyOnExplorePage();
+        Assert.assertTrue(explorePage.isSearchContainerDisplayed());
+    }
 }
 
