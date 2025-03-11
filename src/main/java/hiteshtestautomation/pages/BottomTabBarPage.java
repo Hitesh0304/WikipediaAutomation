@@ -31,23 +31,28 @@ public class BottomTabBarPage {
     @AndroidFindBy (id = "org.wikipedia.alpha:id/nav_tab_more")
     private WebElement moreTab;
 
-    public void goToExplore() {
+    public ExplorePage goToExplore() {
         exploreTab.click();
+        return new ExplorePage(driver);
     }
 
-    public void goToSaved() {
-        savedTab.click();;
+    public SavedPage goToSaved() {
+        savedTab.click();
+        return new SavedPage(driver);
     }
 
-    public void goToSearch() {
+    public SearchPage goToSearch() {
         searchTab.click();
+        return new SearchPage(driver);
     }
 
-    public void goToEdits() {
+    public EditsPage goToEdits() {
         editsTab.click();
+        return new EditsPage(driver);
     }
 
-    public void goToMore() {
+    public MorePage goToMore() {
         moreTab.click();
+        return new MorePage(driver);
     }
 }
