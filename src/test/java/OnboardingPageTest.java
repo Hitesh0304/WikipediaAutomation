@@ -1,8 +1,6 @@
 import hiteshtestautomation.pages.ExplorePage;
-import hiteshtestautomation.pages.OnboardingPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class OnboardingPageTest extends BaseTest {
@@ -34,7 +32,7 @@ public class OnboardingPageTest extends BaseTest {
     }
 
     @Test
-    public void navigateToSecondOnboardingScreenUsingContinue() {
+    public void navigateToSecondOnboardingScreenTest() {
         //assert user is on first onboarding page screen
         Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "The Free Encyclopedia\n" +
                 "…in over 300 languages");

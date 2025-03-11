@@ -5,25 +5,17 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ExplorePageTest extends BaseTest {
-    OnboardingPage onboardingPage;
-    ExplorePage explorePage;
-
-    @BeforeMethod
-    public void setup() {
-        onboardingPage = new OnboardingPage(driver);
-        explorePage = new ExplorePage(driver);
-    }
 
     @Test
     public void featureArticleSectionLoadsTest() {
-        onboardingPage.clickSkipButton();
+        ExplorePage explorePage = onboardingPage.clickSkipButton();
         explorePage.verifyOnExplorePage();
         Assert.assertEquals(explorePage.getFeaturedArticleHeader().getText(), "Featured article");
     }
 
     @Test
     public void pullToRefreshTest() {
-        onboardingPage.clickSkipButton();
+        ExplorePage explorePage = onboardingPage.clickSkipButton();
         explorePage.verifyOnExplorePage();
         explorePage.pullToRefresh();
         Assert.assertTrue(explorePage.getFeaturedArticleHeader().isDisplayed());
@@ -31,7 +23,7 @@ public class ExplorePageTest extends BaseTest {
 
     @Test
     public void searchDisplayedTest() {
-        onboardingPage.clickSkipButton();
+        ExplorePage explorePage = onboardingPage.clickSkipButton();
         explorePage.verifyOnExplorePage();
         Assert.assertTrue(explorePage.isSearchContainerDisplayed());
     }
