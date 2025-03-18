@@ -26,7 +26,7 @@ public class ExplorePageTest extends BaseTest {
     }
 
     @Test
-    public void searchDisplayedTest() {
+    public void searchTabDisplayedTest() {
         Assert.assertTrue(explorePage.isSearchContainerDisplayed());
     }
 }

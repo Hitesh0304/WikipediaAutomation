@@ -21,7 +21,7 @@ public class OnboardingPageTest extends BaseTest {
     }
 
     @Test
-    public void skipOnboardingTest() throws InterruptedException {
+    public void skipOnboardingTest() {
         //assert user is on first onboarding screen
         Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "The Free Encyclopedia\n" +
                 "…in over 300 languages");
@@ -43,7 +43,7 @@ public class OnboardingPageTest extends BaseTest {
     }
 
     @Test
-    public void getStartedOnboardingTest() throws InterruptedException {
+    public void getStartedOnboardingTest() {
         //assert user is on first onboarding page screen
         Assert.assertEquals(onboardingPage.getCurrentOnboardingTitle(), "The Free Encyclopedia\n" +
                 "…in over 300 languages");

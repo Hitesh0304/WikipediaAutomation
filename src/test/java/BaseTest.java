@@ -1,3 +1,4 @@
+import hiteshtestautomation.pages.BottomTabBarPage;
 import hiteshtestautomation.pages.OnboardingPage;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -15,6 +16,7 @@ public class BaseTest {
     AndroidDriver driver;
     AppiumDriverLocalService service;
     OnboardingPage onboardingPage;
+    BottomTabBarPage bottomTabBarPage;
 
     @BeforeClass
     public void configureAppium() throws IOException {
@@ -38,6 +40,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
         onboardingPage =  new OnboardingPage(driver);
+        bottomTabBarPage = new BottomTabBarPage(driver);
     }
 
     @AfterClass
